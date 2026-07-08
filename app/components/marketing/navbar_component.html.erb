@@ -1,0 +1,17 @@
+<header class="sticky top-0 z-40 border-b border-[#e8dfef]/80 bg-white/85 backdrop-blur">
+  <nav class="cpt-container flex items-center justify-between py-4" aria-label="Main navigation">
+    <%= link_to root_path, class: "flex items-center gap-3 text-sm font-semibold text-[#18111f]" do %>
+      <span class="grid h-9 w-9 place-items-center rounded-lg bg-[#18111f] text-[#facc15]">CPT</span>
+      <span>Consulting</span>
+    <% end %>
+    <div class="hidden items-center gap-8 md:flex">
+      <% self.class::LINKS.each do |label, helper| %>
+        <%= link_to label, public_send(helper), class: "text-sm font-medium text-[#655d6f] hover:text-[#18111f]" %>
+      <% end %>
+    </div>
+    <div class="flex items-center gap-2">
+      <%= render Ui::ButtonComponent.new(label: "Contact", href: contact_path, variant: :secondary, class: "hidden sm:inline-flex") %>
+      <%= render Ui::ButtonComponent.new(label: "Get quote", href: new_quote_request_path) %>
+    </div>
+  </nav>
+</header>

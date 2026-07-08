@@ -1,0 +1,34 @@
+<%= form_with model: [:admin, portfolio_project], class: "grid gap-5 cpt-card" do |form| %>
+  <%= render "shared/form_errors", object: portfolio_project %>
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div>
+      <%= form.label :title, class: "text-sm font-medium" %>
+      <%= form.text_field :title, class: "cpt-field" %>
+    </div>
+    <div>
+      <%= form.label :industry, class: "text-sm font-medium" %>
+      <%= form.text_field :industry, class: "cpt-field" %>
+    </div>
+  </div>
+  <div>
+    <%= form.label :summary, class: "text-sm font-medium" %>
+    <%= form.text_area :summary, rows: 4, class: "cpt-field" %>
+  </div>
+  <div>
+    <%= form.label :outcome, class: "text-sm font-medium" %>
+    <%= form.text_area :outcome, rows: 3, class: "cpt-field" %>
+  </div>
+  <div>
+    <%= label_tag "portfolio_project_services_text", "Services, one per line", class: "text-sm font-medium" %>
+    <%= text_area_tag "portfolio_project[services_text][]", portfolio_project.services.join("\n"), rows: 5, id: "portfolio_project_services_text", class: "cpt-field" %>
+  </div>
+  <div class="grid gap-5 sm:grid-cols-3">
+    <div>
+      <%= form.label :position, class: "text-sm font-medium" %>
+      <%= form.number_field :position, class: "cpt-field" %>
+    </div>
+    <label class="flex items-center gap-3 pt-7 text-sm font-medium"><%= form.check_box :featured %> Featured</label>
+    <label class="flex items-center gap-3 pt-7 text-sm font-medium"><%= form.check_box :published %> Published</label>
+  </div>
+  <%= render Ui::ButtonComponent.new(label: "Save project", type: "submit") %>
+<% end %>

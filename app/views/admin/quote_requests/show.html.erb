@@ -1,0 +1,27 @@
+<div class="flex items-center justify-between">
+  <h1 class="text-2xl font-semibold"><%= @quote_request.name %></h1>
+  <%= mail_to @quote_request.email, @quote_request.email, class: "cpt-link" %>
+</div>
+<div class="mt-6 grid gap-6 lg:grid-cols-[1fr_18rem]">
+  <div class="cpt-card">
+    <p class="text-sm cpt-body"><%= @quote_request.company.presence || "No company provided" %></p>
+    <p class="mt-2 text-lg font-semibold"><%= @quote_request.product&.name || "Custom Solution" %></p>
+    <p class="mt-2 text-3xl font-semibold"><%= number_to_currency(@quote_request.estimated_price_cents / 100, precision: 0) %></p>
+    <dl class="mt-6 grid gap-3 text-sm cpt-body">
+      <% @quote_request.configuration.each do |key, value| %>
+        <div class="flex justify-between gap-4 border-t border-[#e8dfef] pt-3">
+          <dt class="font-medium text-[#18111f]"><%= key.to_s.humanize %></dt>
+          <dd><%= Array(value).join(", ").presence || value %></dd>
+        </div>
+      <% end %>
+    </dl>
+    <% if @quote_request.message.present? %>
+      <p class="mt-6 whitespace-pre-line text-slate-700"><%= @quote_request.message %></p>
+    <% end %>
+  </div>
+  <%= form_with model: [:admin, @quote_request], class: "cpt-card" do |form| %>
+    <%= form.label :status, class: "text-sm font-medium" %>
+    <%= form.select :status, QuoteRequest::STATUSES.map { |status| [status.titleize, status] }, {}, class: "cpt-field" %>
+    <%= render Ui::ButtonComponent.new(label: "Update status", type: "submit", class: "mt-5 w-full") %>
+  <% end %>
+</div>

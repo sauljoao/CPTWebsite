@@ -1,0 +1,25 @@
+<%= form_with model: [:admin, faq], class: "grid gap-5 cpt-card" do |form| %>
+  <%= render "shared/form_errors", object: faq %>
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div>
+      <%= form.label :question, class: "text-sm font-medium" %>
+      <%= form.text_field :question, class: "cpt-field" %>
+    </div>
+    <div>
+      <%= form.label :category, class: "text-sm font-medium" %>
+      <%= form.text_field :category, class: "cpt-field" %>
+    </div>
+  </div>
+  <div>
+    <%= form.label :answer, class: "text-sm font-medium" %>
+    <%= form.text_area :answer, rows: 5, class: "cpt-field" %>
+  </div>
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div>
+      <%= form.label :position, class: "text-sm font-medium" %>
+      <%= form.number_field :position, class: "cpt-field" %>
+    </div>
+    <label class="flex items-center gap-3 pt-7 text-sm font-medium"><%= form.check_box :published %> Published</label>
+  </div>
+  <%= render Ui::ButtonComponent.new(label: "Save FAQ", type: "submit") %>
+<% end %>

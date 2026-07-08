@@ -1,0 +1,36 @@
+<%= form_with model: [:admin, product], class: "grid gap-5 cpt-card" do |form| %>
+  <%= render "shared/form_errors", object: product %>
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div>
+      <%= form.label :name, class: "text-sm font-medium" %>
+      <%= form.text_field :name, class: "cpt-field" %>
+    </div>
+    <div>
+      <%= form.label :base_price_cents, "Base price in cents", class: "text-sm font-medium" %>
+      <%= form.number_field :base_price_cents, class: "cpt-field" %>
+    </div>
+  </div>
+  <div>
+    <%= form.label :description, class: "text-sm font-medium" %>
+    <%= form.text_area :description, rows: 4, class: "cpt-field" %>
+  </div>
+  <div>
+    <%= label_tag "product_features_text", "Features, one per line", class: "text-sm font-medium" %>
+    <%= text_area_tag "product[features_text][]", product.features.join("\n"), rows: 6, id: "product_features_text", class: "cpt-field" %>
+  </div>
+  <div class="grid gap-5 sm:grid-cols-3">
+    <div>
+      <%= form.label :cta_label, class: "text-sm font-medium" %>
+      <%= form.text_field :cta_label, class: "cpt-field" %>
+    </div>
+    <div>
+      <%= form.label :position, class: "text-sm font-medium" %>
+      <%= form.number_field :position, class: "cpt-field" %>
+    </div>
+    <label class="flex items-center gap-3 pt-7 text-sm font-medium">
+      <%= form.check_box :published %>
+      Published
+    </label>
+  </div>
+  <%= render Ui::ButtonComponent.new(label: "Save product", type: "submit") %>
+<% end %>

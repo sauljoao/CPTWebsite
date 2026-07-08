@@ -1,1 +1,125 @@
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    --cpt-ink: #18111f;
+    --cpt-muted: #655d6f;
+    --cpt-border: #e8dfef;
+    --cpt-purple: #7c3aed;
+    --cpt-orange: #f97316;
+    --cpt-yellow: #facc15;
+    --cpt-lilac: #f4edff;
+    --cpt-cream: #fff8df;
+    --cpt-peach: #fff1e7;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: var(--cpt-yellow);
+    color: var(--cpt-ink);
+  }
+}
+
+@layer components {
+  .cpt-page {
+    background:
+      linear-gradient(180deg, #fffaf0 0%, #ffffff 22%, #f8f5ff 100%);
+    color: var(--cpt-ink);
+  }
+
+  .cpt-container {
+    @apply mx-auto max-w-7xl px-6 lg:px-8;
+  }
+
+  .cpt-section {
+    @apply py-20 sm:py-24;
+  }
+
+  .cpt-section-muted {
+    background: linear-gradient(135deg, var(--cpt-lilac), #ffffff 48%, var(--cpt-cream));
+  }
+
+  .cpt-section-dark {
+    background:
+      radial-gradient(circle at 18% 15%, rgba(250, 204, 21, .24), transparent 26%),
+      radial-gradient(circle at 80% 20%, rgba(249, 115, 22, .20), transparent 30%),
+      #18111f;
+  }
+
+  .cpt-eyebrow {
+    @apply text-sm font-semibold uppercase;
+    color: var(--cpt-purple);
+  }
+
+  .cpt-eyebrow-light {
+    @apply text-sm font-semibold uppercase;
+    color: #fde68a;
+  }
+
+  .cpt-heading {
+    @apply font-semibold;
+    color: var(--cpt-ink);
+  }
+
+  .cpt-body {
+    color: var(--cpt-muted);
+  }
+
+  .cpt-card {
+    @apply rounded-lg border bg-white p-6 shadow-sm;
+    border-color: var(--cpt-border);
+    box-shadow: 0 18px 50px rgba(48, 31, 63, .08);
+  }
+
+  .cpt-card-soft {
+    @apply rounded-lg border p-6;
+    border-color: var(--cpt-border);
+    background: linear-gradient(145deg, #ffffff, var(--cpt-lilac));
+  }
+
+  .cpt-card-dark {
+    @apply rounded-lg p-6 text-white;
+    background: linear-gradient(145deg, #24162f, #18111f);
+    box-shadow: 0 24px 70px rgba(24, 17, 31, .24);
+  }
+
+  .cpt-link {
+    @apply text-sm font-semibold transition;
+    color: var(--cpt-purple);
+  }
+
+  .cpt-link:hover {
+    color: var(--cpt-orange);
+  }
+
+  .cpt-field {
+    @apply mt-2 w-full rounded-lg border bg-white px-3 py-2 outline-none transition;
+    border-color: var(--cpt-border);
+  }
+
+  .cpt-field:focus {
+    border-color: var(--cpt-purple);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, .14);
+  }
+
+  .cpt-choice {
+    @apply flex items-center gap-3 rounded-lg border bg-white p-3 text-sm transition;
+    border-color: var(--cpt-border);
+  }
+
+  .cpt-choice:hover {
+    border-color: rgba(249, 115, 22, .45);
+    background: var(--cpt-peach);
+  }
+
+  .cpt-check {
+    color: var(--cpt-orange);
+  }
+
+  .cpt-accent-text {
+    color: var(--cpt-purple);
+  }
+}

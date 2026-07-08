@@ -1,0 +1,11 @@
+<div class="flex items-center justify-between">
+  <h1 class="text-2xl font-semibold"><%= @product.name %></h1>
+  <%= render Ui::ButtonComponent.new(label: "Edit", href: edit_admin_product_path(@product), variant: :secondary) %>
+</div>
+<div class="mt-6 cpt-card">
+  <p class="cpt-body"><%= @product.description %></p>
+  <p class="mt-4 font-semibold"><%= @product.starting_price %></p>
+  <ul class="mt-4 list-disc pl-5 text-sm cpt-body">
+    <% @product.features.each do |feature| %><li><%= feature %></li><% end %>
+  </ul>
+</div>

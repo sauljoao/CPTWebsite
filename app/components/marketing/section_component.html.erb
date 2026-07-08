@@ -1,0 +1,16 @@
+<section class="<%= ["cpt-section", @classes].compact.join(" ") %>">
+  <div class="cpt-container">
+    <div class="mx-auto max-w-2xl text-center">
+      <% if @eyebrow.present? %>
+        <p class="cpt-eyebrow"><%= @eyebrow %></p>
+      <% end %>
+      <h2 class="cpt-heading mt-3 text-3xl sm:text-4xl"><%= @title %></h2>
+      <% if @subtitle.present? %>
+        <p class="cpt-body mt-4 text-base leading-7"><%= @subtitle %></p>
+      <% end %>
+    </div>
+    <div class="mt-12">
+      <%= content %>
+    </div>
+  </div>
+</section>

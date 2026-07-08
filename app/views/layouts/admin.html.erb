@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "CPT Admin" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body class="bg-[#fff8df] text-[#18111f] antialiased">
+    <div class="min-h-screen">
+      <aside class="fixed inset-y-0 left-0 hidden w-64 border-r border-[#e8dfef] bg-white p-6 lg:block">
+        <%= link_to "CPT Admin", admin_root_path, class: "text-lg font-semibold" %>
+        <nav class="mt-8 grid gap-2 text-sm">
+          <%= link_to "Products", admin_products_path, class: "rounded-lg px-3 py-2 hover:bg-slate-100" %>
+          <%= link_to "Portfolio", admin_portfolio_projects_path, class: "rounded-lg px-3 py-2 hover:bg-slate-100" %>
+          <%= link_to "FAQs", admin_faqs_path, class: "rounded-lg px-3 py-2 hover:bg-slate-100" %>
+          <%= link_to "Contact Requests", admin_contact_requests_path, class: "rounded-lg px-3 py-2 hover:bg-slate-100" %>
+          <%= link_to "Quote Requests", admin_quote_requests_path, class: "rounded-lg px-3 py-2 hover:bg-slate-100" %>
+          <%= link_to "Public site", root_path, class: "rounded-lg px-3 py-2 hover:bg-slate-100" %>
+        </nav>
+      </aside>
+      <main class="lg:pl-64">
+        <div class="mx-auto max-w-6xl px-6 py-8">
+          <% if notice.present? %>
+            <div class="mb-6 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900"><%= notice %></div>
+          <% end %>
+          <% if alert.present? %>
+            <div class="mb-6 rounded-lg border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-900"><%= alert %></div>
+          <% end %>
+          <%= yield %>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

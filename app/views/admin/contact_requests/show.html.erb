@@ -1,0 +1,16 @@
+<div class="flex items-center justify-between">
+  <h1 class="text-2xl font-semibold"><%= @contact_request.name %></h1>
+  <%= mail_to @contact_request.email, @contact_request.email, class: "cpt-link" %>
+</div>
+<div class="mt-6 grid gap-6 lg:grid-cols-[1fr_18rem]">
+  <div class="cpt-card">
+    <p class="text-sm cpt-body"><%= @contact_request.company.presence || "No company provided" %></p>
+    <p class="mt-2 cpt-link"><%= @contact_request.request_type.titleize %></p>
+    <p class="mt-6 whitespace-pre-line text-slate-700"><%= @contact_request.message %></p>
+  </div>
+  <%= form_with model: [:admin, @contact_request], class: "cpt-card" do |form| %>
+    <%= form.label :status, class: "text-sm font-medium" %>
+    <%= form.select :status, ContactRequest::STATUSES.map { |status| [status.titleize, status] }, {}, class: "cpt-field" %>
+    <%= render Ui::ButtonComponent.new(label: "Update status", type: "submit", class: "mt-5 w-full") %>
+  <% end %>
+</div>

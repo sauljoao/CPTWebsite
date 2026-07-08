@@ -1,0 +1,17 @@
+<div class="flex items-center justify-between">
+  <h1 class="text-2xl font-semibold">FAQs</h1>
+  <%= render Ui::ButtonComponent.new(label: "New FAQ", href: new_admin_faq_path) %>
+</div>
+<div class="mt-6 grid gap-4">
+  <% @faqs.each do |faq| %>
+    <div class="cpt-card">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h2 class="font-semibold"><%= faq.question %></h2>
+          <p class="mt-1 text-sm cpt-body"><%= faq.category %> · <%= faq.published? ? "Published" : "Draft" %></p>
+        </div>
+        <%= link_to "Edit", edit_admin_faq_path(faq), class: "cpt-link" %>
+      </div>
+    </div>
+  <% end %>
+</div>

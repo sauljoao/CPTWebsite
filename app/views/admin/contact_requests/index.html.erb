@@ -1,0 +1,19 @@
+<h1 class="text-2xl font-semibold">Contact Requests</h1>
+<div class="mt-6 overflow-hidden rounded-lg border border-[#e8dfef] bg-white">
+  <table class="w-full text-left text-sm">
+    <thead class="bg-[#fff8df] cpt-body">
+      <tr><th class="p-4">Name</th><th class="p-4">Type</th><th class="p-4">Status</th><th class="p-4">Received</th><th class="p-4"></th></tr>
+    </thead>
+    <tbody class="divide-y divide-[#e8dfef]">
+      <% @contact_requests.each do |request| %>
+        <tr>
+          <td class="p-4 font-medium"><%= request.name %></td>
+          <td class="p-4"><%= request.request_type.titleize %></td>
+          <td class="p-4"><%= request.status.titleize %></td>
+          <td class="p-4"><%= l(request.created_at, format: :short) %></td>
+          <td class="p-4 text-right"><%= link_to "Open", admin_contact_request_path(request), class: "cpt-link" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

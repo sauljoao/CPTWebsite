@@ -1,0 +1,9 @@
+<div class="flex items-center justify-between">
+  <h1 class="text-2xl font-semibold"><%= @portfolio_project.title %></h1>
+  <%= render Ui::ButtonComponent.new(label: "Edit", href: edit_admin_portfolio_project_path(@portfolio_project), variant: :secondary) %>
+</div>
+<div class="mt-6 cpt-card">
+  <p class="cpt-link"><%= @portfolio_project.industry %></p>
+  <p class="mt-4 cpt-body"><%= @portfolio_project.summary %></p>
+  <p class="mt-4 font-semibold"><%= @portfolio_project.outcome %></p>
+</div>

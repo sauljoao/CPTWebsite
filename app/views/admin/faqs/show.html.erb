@@ -1,0 +1,8 @@
+<div class="flex items-center justify-between">
+  <h1 class="text-2xl font-semibold"><%= @faq.question %></h1>
+  <%= render Ui::ButtonComponent.new(label: "Edit", href: edit_admin_faq_path(@faq), variant: :secondary) %>
+</div>
+<div class="mt-6 cpt-card">
+  <p class="cpt-link"><%= @faq.category %></p>
+  <p class="mt-4 cpt-body"><%= @faq.answer %></p>
+</div>

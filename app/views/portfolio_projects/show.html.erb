@@ -1,0 +1,23 @@
+<% content_for :title, "#{@portfolio_project.title} - CPT Consulting" %>
+
+<section class="cpt-section">
+  <div class="mx-auto max-w-4xl px-6 lg:px-8">
+    <p class="cpt-eyebrow"><%= @portfolio_project.product_type %> · <%= @portfolio_project.industry %></p>
+    <h1 class="cpt-heading mt-3 text-4xl sm:text-5xl"><%= @portfolio_project.title %></h1>
+    <p class="cpt-body mt-6 text-lg leading-8"><%= @portfolio_project.summary %></p>
+    <div class="mt-10 grid gap-6 md:grid-cols-2">
+      <%= render Ui::CardComponent.new do %>
+        <h2 class="font-semibold">Services</h2>
+        <ul class="cpt-body mt-4 grid gap-2 text-sm">
+          <% @portfolio_project.services.each do |service| %>
+            <li><%= service %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <%= render Ui::CardComponent.new do %>
+        <h2 class="font-semibold">Outcome</h2>
+        <p class="cpt-body mt-4 text-sm leading-6"><%= @portfolio_project.outcome %></p>
+      <% end %>
+    </div>
+  </div>
+</section>
