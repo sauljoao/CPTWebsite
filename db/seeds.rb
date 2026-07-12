@@ -4,38 +4,38 @@
 #
 products = [
   {
-    name: "Landing Page",
-    description: "A focused, premium one-page experience for launches, campaigns, and validated offers.",
+    name: "Página de aterragem",
+    description: "Uma experiência premium de uma página para lançamentos, campanhas e ofertas validadas.",
     base_price_cents: 150_000,
-    features: [ "Strategy session", "Conversion-focused copy structure", "Responsive design", "Rails implementation", "Analytics setup", "Launch checklist" ],
+    features: [ "Sessão de estratégia", "Estrutura de copy focada em conversão", "Design responsivo", "Implementação Rails", "Configuração de analytics", "Checklist de lançamento" ],
     position: 1
   },
   {
     name: "Website",
-    description: "A complete company website with reusable page patterns, clear navigation, and room to grow.",
+    description: "Um website completo para empresas, com padrões reutilizáveis, navegação clara e espaço para crescer.",
     base_price_cents: 350_000,
-    features: [ "Discovery and sitemap", "Up to 6 core pages", "Reusable design components", "Contact and quote forms", "SEO foundations", "Performance and accessibility QA" ],
+    features: [ "Descoberta e mapa do site", "Até 6 páginas principais", "Componentes de design reutilizáveis", "Formulários de contacto e orçamento", "Bases de SEO", "Revisão de performance e acessibilidade" ],
     position: 2
   },
   {
-    name: "Ecommerce Website",
-    description: "A polished online store experience for businesses that need product clarity and a trustworthy checkout path.",
+    name: "Loja online",
+    description: "Uma loja online cuidada para empresas que precisam de clareza nos produtos e um percurso de compra fiável.",
     base_price_cents: 650_000,
-    features: [ "Product catalog structure", "Storefront design", "Checkout integration planning", "Transactional email basics", "Inventory-ready admin structure", "Launch support" ],
+    features: [ "Estrutura de catálogo", "Design da montra", "Planeamento de checkout", "Bases de emails transaccionais", "Admin preparado para inventário", "Suporte de lançamento" ],
     position: 3
   },
   {
-    name: "Custom Solution",
-    description: "A tailored Rails build for workflows, portals, dashboards, and business-specific digital products.",
+    name: "Solução à medida",
+    description: "Uma solução Rails personalizada para fluxos de trabalho, portais, dashboards e produtos digitais específicos.",
     base_price_cents: 10_000_00,
-    features: [ "Product discovery", "Technical planning", "Custom Rails application", "Admin workflows", "Integrations", "Roadmap and support plan" ],
+    features: [ "Descoberta de produto", "Planeamento técnico", "Aplicação Rails personalizada", "Fluxos de admin", "Integrações", "Roadmap e plano de suporte" ],
     position: 4
   }
 ]
 
 products.each do |attributes|
-  Product.find_or_initialize_by(name: attributes[:name]).tap do |product|
-    product.assign_attributes(attributes.merge(cta_label: "Request a quote", published: true))
+  Product.find_or_initialize_by(position: attributes[:position]).tap do |product|
+    product.assign_attributes(attributes.merge(cta_label: "Pedir orçamento", published: true))
     product.save!
   end
 end
@@ -43,41 +43,41 @@ end
 projects = [
   {
     title: "PulseFit Challenge Launch",
-    product_type: "Landing Page",
+    product_type: "Página de aterragem",
     industry: "Fitness",
-    summary: "A high-energy campaign page for a 30-day coaching program with one clear signup path.",
-    outcome: "Focused messaging, sharper proof, and a fast lead capture flow for paid traffic.",
-    services: [ "Landing page strategy", "Campaign structure", "Lead capture" ],
+    summary: "Uma página de campanha energética para um programa de coaching de 30 dias com um caminho claro de inscrição.",
+    outcome: "Mensagem mais focada, prova mais forte e captação rápida de leads para tráfego pago.",
+    services: [ "Estratégia da página", "Estrutura de campanha", "Captação de leads" ],
     featured: true,
     position: 1
   },
   {
     title: "NovaTax Consultation Page",
-    product_type: "Landing Page",
+    product_type: "Página de aterragem",
     industry: "Finance",
-    summary: "A conversion-focused page for a seasonal tax consultation offer aimed at founders.",
-    outcome: "Reduced friction, clearer urgency, and a compact trust section near the booking action.",
-    services: [ "Offer positioning", "CTA design", "Analytics setup" ],
+    summary: "Uma página focada em conversão para uma oferta sazonal de consultoria fiscal para fundadores.",
+    outcome: "Menos fricção, urgência mais clara e uma secção de confiança junto à marcação.",
+    services: [ "Posicionamento da oferta", "Design de CTA", "Analytics" ],
     featured: true,
     position: 2
   },
   {
     title: "Luma Course Waitlist",
-    product_type: "Landing Page",
+    product_type: "Página de aterragem",
     industry: "Education",
-    summary: "A waitlist page for a premium cohort course with proof, curriculum, and early access signup.",
-    outcome: "A polished campaign surface that can validate demand before building the full platform.",
-    services: [ "Waitlist flow", "Copy structure", "Responsive build" ],
+    summary: "Uma página de lista de espera para um curso premium com prova, currículo e acesso antecipado.",
+    outcome: "Uma campanha cuidada para validar procura antes de construir a plataforma completa.",
+    services: [ "Fluxo de lista de espera", "Estrutura de copy", "Construção responsiva" ],
     featured: true,
     position: 3
   },
   {
-    title: "Atlas Advisory Website",
+    title: "Website Atlas Advisory",
     product_type: "Website",
     industry: "Professional Services",
-    summary: "A crisp company website for a consulting firm moving from referrals to a scalable inbound presence.",
-    outcome: "Clearer positioning, stronger inquiry flow, and reusable page patterns for future services.",
-    services: [ "Website strategy", "Visual system", "Rails build" ],
+    summary: "Um website claro para uma consultora que queria transformar referências numa presença inbound escalável.",
+    outcome: "Posicionamento mais claro, melhor fluxo de contacto e padrões reutilizáveis para novos serviços.",
+    services: [ "Estratégia de website", "Sistema visual", "Construção Rails" ],
     featured: true,
     position: 4
   },
@@ -85,9 +85,9 @@ projects = [
     title: "Harbor Dental Studio",
     product_type: "Website",
     industry: "Healthcare",
-    summary: "A calm, premium practice website with service pages, patient FAQs, and appointment routing.",
-    outcome: "More confident first impressions and a clearer path from treatment research to booking.",
-    services: [ "Service architecture", "Trust sections", "Contact flow" ],
+    summary: "Um website calmo e premium com páginas de serviço, FAQ para pacientes e encaminhamento para marcações.",
+    outcome: "Primeira impressão mais confiante e caminho mais claro da pesquisa à marcação.",
+    services: [ "Arquitectura de serviços", "Secções de confiança", "Fluxo de contacto" ],
     featured: false,
     position: 5
   },
@@ -95,87 +95,87 @@ projects = [
     title: "Fieldstone Architecture",
     product_type: "Website",
     industry: "Architecture",
-    summary: "A portfolio-led studio website balancing project imagery, process, and inquiry conversion.",
-    outcome: "A refined editorial structure that makes high-value work easier to browse and request.",
-    services: [ "Portfolio system", "About page", "Inquiry design" ],
+    summary: "Um website de estúdio centrado em portefólio, equilibrando imagem, processo e pedidos de contacto.",
+    outcome: "Estrutura editorial refinada que torna o trabalho de alto valor mais fácil de explorar.",
+    services: [ "Sistema de portefólio", "Página Sobre", "Design de pedido" ],
     featured: false,
     position: 6
   },
   {
     title: "Northline Commerce Refresh",
-    product_type: "Ecommerce Website",
+    product_type: "Loja online",
     industry: "Retail",
-    summary: "A modern ecommerce concept focused on product trust, editorial merchandising, and mobile conversion.",
-    outcome: "A storefront structure ready for real catalog migration and checkout integration.",
-    services: [ "Ecommerce UX", "Product architecture", "Responsive storefront" ],
+    summary: "Um conceito moderno de ecommerce focado em confiança, merchandising editorial e conversão mobile.",
+    outcome: "Estrutura de loja preparada para migração de catálogo e integração de checkout.",
+    services: [ "UX ecommerce", "Arquitectura de produto", "Montra responsiva" ],
     featured: true,
     position: 7
   },
   {
     title: "Sol Pantry Market",
-    product_type: "Ecommerce Website",
+    product_type: "Loja online",
     industry: "Food",
-    summary: "A warm online store for pantry products with category browsing, product detail, and cart clarity.",
-    outcome: "Easier product discovery and a calmer path from browsing to checkout intent.",
-    services: [ "Storefront design", "Catalog structure", "Cart experience" ],
+    summary: "Uma loja online acolhedora para produtos alimentares, com categorias, detalhe de produto e carrinho claro.",
+    outcome: "Descoberta de produto mais simples e caminho mais calmo até à intenção de compra.",
+    services: [ "Design da montra", "Estrutura de catálogo", "Experiência de carrinho" ],
     featured: false,
     position: 8
   },
   {
     title: "Aster Home Goods",
-    product_type: "Ecommerce Website",
+    product_type: "Loja online",
     industry: "Home Decor",
-    summary: "A premium home goods storefront with collection storytelling and comparison-friendly product cards.",
-    outcome: "A richer shopping experience that still keeps product choice and checkout momentum simple.",
-    services: [ "Collection pages", "Product cards", "Checkout planning" ],
+    summary: "Uma montra premium para artigos de casa, com storytelling de colecções e cartões de produto comparáveis.",
+    outcome: "Experiência de compra mais rica sem complicar escolha, carrinho ou checkout.",
+    services: [ "Páginas de colecção", "Cartões de produto", "Planeamento de checkout" ],
     featured: false,
     position: 9
   },
   {
     title: "SignalOps Portal",
-    product_type: "Custom Solution",
+    product_type: "Solução à medida",
     industry: "Operations",
-    summary: "A dashboard-style prototype for internal requests, project tracking, and client communication.",
-    outcome: "A practical foundation for a custom Rails workflow application.",
-    services: [ "Workflow design", "Admin interface", "Application prototype" ],
+    summary: "Um protótipo de dashboard para pedidos internos, acompanhamento de projectos e comunicação com clientes.",
+    outcome: "Base prática para uma aplicação Rails com fluxos de trabalho personalizados.",
+    services: [ "Design de workflow", "Interface de admin", "Protótipo de aplicação" ],
     featured: true,
     position: 10
   },
   {
     title: "Relay Client Hub",
-    product_type: "Custom Solution",
+    product_type: "Solução à medida",
     industry: "Agency",
-    summary: "A client portal concept for approvals, project assets, status updates, and meeting notes.",
-    outcome: "A single operational workspace that reduces scattered communication and manual follow-up.",
-    services: [ "Portal UX", "Approval workflow", "Admin dashboard" ],
+    summary: "Um conceito de portal de cliente para aprovações, ficheiros, estados de projecto e notas de reunião.",
+    outcome: "Um espaço operacional único que reduz comunicação dispersa e seguimento manual.",
+    services: [ "UX de portal", "Workflow de aprovação", "Dashboard admin" ],
     featured: false,
     position: 11
   },
   {
     title: "Motive Inventory Desk",
-    product_type: "Custom Solution",
+    product_type: "Solução à medida",
     industry: "Logistics",
-    summary: "A lightweight internal system for inventory checks, exceptions, and weekly operations reporting.",
-    outcome: "A clearer workflow for teams that need custom software without enterprise complexity.",
-    services: [ "Custom Rails app", "Reporting", "Role-aware workflows" ],
+    summary: "Um sistema interno leve para verificações de inventário, excepções e relatórios semanais.",
+    outcome: "Workflow mais claro para equipas que precisam de software próprio sem complexidade empresarial.",
+    services: [ "Aplicação Rails", "Relatórios", "Workflows por função" ],
     featured: false,
     position: 12
   }
 ]
 
 projects.each do |attributes|
-  PortfolioProject.find_or_initialize_by(title: attributes[:title]).tap do |project|
+  PortfolioProject.find_or_initialize_by(position: attributes[:position]).tap do |project|
     project.assign_attributes(attributes.merge(published: true))
     project.save!
   end
 end
 
 faqs = [
-  [ "General", "How long does a website project take?", "A focused landing page can launch in 1 to 2 weeks. A full website usually takes 3 to 6 weeks depending on content, feedback, and integrations." ],
-  [ "Pricing", "Are the prices fixed?", "The listed prices are transparent starting points. Final pricing depends on scope, content, integrations, and timeline." ],
-  [ "Process", "Do you help with content?", "Yes. Every project includes content structure. Copywriting can be added when you want CPT to draft or refine the final copy." ],
-  [ "Ownership", "Who owns the website after launch?", "You own the website, content, and account access. CPT can continue supporting the system if you want an ongoing partner." ],
-  [ "Technology", "Why Rails?", "Rails keeps the site fast, maintainable, and ready to grow into admin workflows, portals, ecommerce, or custom product features." ]
+  [ "Geral", "Quanto tempo demora um projecto?", "Uma página de aterragem focada pode ser lançada em 1 a 2 semanas. Um website completo costuma demorar 3 a 6 semanas, dependendo de conteúdo, feedback e integrações." ],
+  [ "Preços", "Os preços são fixos?", "Os preços listados são pontos de partida transparentes. O valor final depende de âmbito, conteúdo, integrações e prazo." ],
+  [ "Processo", "Ajudam com conteúdo?", "Sim. Todos os projectos incluem estrutura de conteúdo. Copywriting pode ser adicionado quando quiser que a CPT escreva ou refine o texto final." ],
+  [ "Propriedade", "Quem fica dono do website depois do lançamento?", "O website, o conteúdo e os acessos ficam consigo. A CPT pode continuar a dar suporte se quiser manter um parceiro técnico." ],
+  [ "Tecnologia", "Porquê Rails?", "Rails mantém o site rápido, sustentável e preparado para crescer para admins, portais, ecommerce ou funcionalidades à medida." ]
 ]
 
 faqs.each_with_index do |(category, question, answer), index|

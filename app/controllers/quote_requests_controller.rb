@@ -18,7 +18,7 @@ class QuoteRequestsController < ApplicationController
     @quote_request.estimated_price_cents = calculator.estimate_cents
 
     if @quote_request.save
-      redirect_to new_quote_request_path, notice: "Your estimate is #{helpers.number_to_currency(calculator.estimate, precision: 0)}. We will follow up with a precise proposal."
+      redirect_to new_quote_request_path, notice: "A sua estimativa é #{helpers.number_to_currency(calculator.estimate, precision: 0)}. Vamos enviar uma proposta precisa."
     else
       render :new, status: :unprocessable_entity
     end

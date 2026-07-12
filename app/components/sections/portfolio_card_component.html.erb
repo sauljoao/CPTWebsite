@@ -22,16 +22,16 @@
 
     <div class="mt-5 rounded-lg border border-[#e8dfef] p-4">
       <div class="flex items-center justify-between gap-4">
-        <p class="text-sm font-semibold text-[#18111f]" data-portfolio-card-target="label">Outcome</p>
+        <p class="text-sm font-semibold text-[#18111f]" data-portfolio-card-target="label">Resultado</p>
         <button class="rounded-full px-3 py-1 text-xs font-semibold text-white transition hover:opacity-85 <%= @accent[:button] %>" type="button" data-action="portfolio-card#toggle" data-portfolio-card-target="button">
-          Preview
+          Pré-visualizar
         </button>
       </div>
       <p class="cpt-body mt-3 text-sm leading-6" data-portfolio-card-target="body"><%= @project.outcome %></p>
     </div>
 
     <div class="mt-5 hidden rounded-lg bg-[#f4edff] p-4" data-portfolio-card-target="details">
-      <p class="text-xs font-semibold uppercase text-[#7c3aed]">Services</p>
+      <p class="text-xs font-semibold uppercase text-[#7c3aed]">Serviços</p>
       <ul class="mt-3 grid gap-2 text-sm text-[#655d6f]">
         <% @project.services.each do |service| %>
           <li><span class="cpt-check">✓</span> <%= service %></li>
@@ -39,6 +39,6 @@
       </ul>
     </div>
 
-    <%= link_to "Open case study", portfolio_project_path(@project), class: "cpt-link mt-6 inline-flex" %>
+    <%= link_to "Abrir estudo de caso", portfolio_project_path(@project), class: "cpt-link mt-6 inline-flex" %>
   </div>
 </article>

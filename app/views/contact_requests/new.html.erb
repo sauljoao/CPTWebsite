@@ -1,18 +1,18 @@
-<% content_for :title, "Contact - CPT Consulting" %>
+<% content_for :title, "Contacto - CPT Consulting" %>
 
 <section class="cpt-section">
   <div class="cpt-container grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
     <div>
-      <p class="cpt-eyebrow">Contact</p>
-      <h1 class="cpt-heading mt-3 text-4xl sm:text-5xl">Tell us what you are building.</h1>
-      <p class="cpt-body mt-6 text-lg leading-8">Send a message, request a quote, or ask for a meeting. We will reply with the cleanest next step.</p>
+      <p class="cpt-eyebrow">Contacto</p>
+      <h1 class="cpt-heading mt-3 text-4xl sm:text-5xl">Diga-nos o que está a construir.</h1>
+      <p class="cpt-body mt-6 text-lg leading-8">Envie uma mensagem, peça orçamento ou marque uma reunião. Respondemos com o próximo passo mais simples.</p>
     </div>
     <%= render Ui::CardComponent.new do %>
       <%= form_with model: @contact_request, url: contact_requests_path, class: "grid gap-5" do |form| %>
         <%= render "shared/form_errors", object: @contact_request %>
         <div class="grid gap-5 sm:grid-cols-2">
           <div>
-            <%= form.label :name, class: "text-sm font-medium" %>
+            <%= form.label :name, "Nome", class: "text-sm font-medium" %>
             <%= form.text_field :name, class: "cpt-field" %>
           </div>
           <div>
@@ -22,19 +22,19 @@
         </div>
         <div class="grid gap-5 sm:grid-cols-2">
           <div>
-            <%= form.label :company, class: "text-sm font-medium" %>
+            <%= form.label :company, "Empresa", class: "text-sm font-medium" %>
             <%= form.text_field :company, class: "cpt-field" %>
           </div>
           <div>
-            <%= form.label :request_type, "Request type", class: "text-sm font-medium" %>
-            <%= form.select :request_type, ContactRequest::REQUEST_TYPES.map { |type| [type.titleize, type] }, {}, class: "cpt-field" %>
+            <%= form.label :request_type, "Tipo de pedido", class: "text-sm font-medium" %>
+            <%= form.select :request_type, [["Contacto", "contact"], ["Orçamento", "quote"], ["Reunião", "meeting"]], {}, class: "cpt-field" %>
           </div>
         </div>
         <div>
-          <%= form.label :message, class: "text-sm font-medium" %>
+          <%= form.label :message, "Mensagem", class: "text-sm font-medium" %>
           <%= form.text_area :message, rows: 6, class: "cpt-field" %>
         </div>
-        <%= render Ui::ButtonComponent.new(label: "Send request", type: "submit") %>
+        <%= render Ui::ButtonComponent.new(label: "Enviar pedido", type: "submit") %>
       <% end %>
     <% end %>
   </div>

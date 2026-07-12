@@ -1,4 +1,4 @@
-module Marketing
+module Sections
   class PortfolioCardComponent < ApplicationComponent
     ACCENTS = {
       landing: {

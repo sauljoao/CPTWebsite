@@ -7,7 +7,7 @@
     <p class="cpt-body mt-6 text-lg leading-8"><%= @portfolio_project.summary %></p>
     <div class="mt-10 grid gap-6 md:grid-cols-2">
       <%= render Ui::CardComponent.new do %>
-        <h2 class="font-semibold">Services</h2>
+        <h2 class="font-semibold">Serviços</h2>
         <ul class="cpt-body mt-4 grid gap-2 text-sm">
           <% @portfolio_project.services.each do |service| %>
             <li><%= service %></li>
@@ -15,7 +15,7 @@
         </ul>
       <% end %>
       <%= render Ui::CardComponent.new do %>
-        <h2 class="font-semibold">Outcome</h2>
+        <h2 class="font-semibold">Resultado</h2>
         <p class="cpt-body mt-4 text-sm leading-6"><%= @portfolio_project.outcome %></p>
       <% end %>
     </div>

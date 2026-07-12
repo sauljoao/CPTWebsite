@@ -1,4 +1,4 @@
-module Marketing
+module Layouts
   class FooterComponent < ApplicationComponent
   end
 end

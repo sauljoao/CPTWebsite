@@ -13,6 +13,6 @@ class Product < ApplicationRecord
   end
 
   def starting_price
-    "Starting at #{ApplicationController.helpers.number_to_currency(price, precision: 0)}"
+    "A partir de #{ApplicationController.helpers.number_to_currency(price, precision: 0)}"
   end
 end

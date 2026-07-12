@@ -1,6 +1,6 @@
-<% content_for :title, "Products - CPT Consulting" %>
+<% content_for :title, "Produtos - CPT Consulting" %>
 
-<%= render Marketing::SectionComponent.new(eyebrow: "Products", title: "Four focused ways to build", subtitle: "Choose the product that matches the stage and ambition of your business.") do %>
+<%= render ::Sections::SectionComponent.new(eyebrow: "Produtos", title: "Quatro formas focadas de construir", subtitle: "Escolha o produto que corresponde à fase e ambição do seu negócio.") do %>
   <div class="grid gap-8">
     <% @products.each do |product| %>
       <%= render Ui::CardComponent.new(classes: "grid gap-8 lg:grid-cols-[0.85fr_1.15fr]") do %>
@@ -19,10 +19,10 @@
           </ul>
           <div class="mt-8 flex flex-wrap gap-3">
             <%= render Ui::ButtonComponent.new(label: product.cta_label, href: new_quote_request_path(product_id: product.id)) %>
-            <%= render Ui::ButtonComponent.new(label: "Details", href: product_path(product), variant: :secondary) %>
+            <%= render Ui::ButtonComponent.new(label: "Detalhes", href: product_path(product), variant: :secondary) %>
           </div>
         </div>
-        <%= render Marketing::ProductMockupComponent.new(product: product) %>
+        <%= render ::Sections::ProductMockupComponent.new(product: product) %>
       <% end %>
     <% end %>
   </div>

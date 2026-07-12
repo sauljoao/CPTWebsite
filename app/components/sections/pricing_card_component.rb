@@ -1,4 +1,4 @@
-module Marketing
+module Sections
   class PricingCardComponent < ApplicationComponent
     def initialize(product:, highlighted: false)
       @product = product

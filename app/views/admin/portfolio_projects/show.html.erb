@@ -3,7 +3,7 @@
   <%= render Ui::ButtonComponent.new(label: "Edit", href: edit_admin_portfolio_project_path(@portfolio_project), variant: :secondary) %>
 </div>
 <div class="mt-6 cpt-card">
-  <p class="cpt-link"><%= @portfolio_project.industry %></p>
+  <p class="cpt-link"><%= @portfolio_project.product_type %> · <%= @portfolio_project.industry %></p>
   <p class="mt-4 cpt-body"><%= @portfolio_project.summary %></p>
   <p class="mt-4 font-semibold"><%= @portfolio_project.outcome %></p>
 </div>

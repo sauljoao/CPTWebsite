@@ -46,7 +46,7 @@ module Admin
     end
 
     def portfolio_project_params
-      permitted = params.require(:portfolio_project).permit(:title, :industry, :summary, :outcome, :position, :featured, :published, services_text: [])
+      permitted = params.require(:portfolio_project).permit(:title, :product_type, :industry, :summary, :outcome, :position, :featured, :published, services_text: [])
       permitted[:services] = Array(params.dig(:portfolio_project, :services_text)).flat_map { |item| item.to_s.split("\n") }.map(&:strip).reject(&:blank?)
       permitted.except(:services_text)
     end

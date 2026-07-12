@@ -24,7 +24,7 @@
   </head>
 
   <body class="cpt-page antialiased">
-    <%= render Marketing::NavbarComponent.new %>
+    <%= render ::Layouts::NavbarComponent.new %>
     <% if notice.present? || alert.present? %>
       <div class="mx-auto mt-4 max-w-7xl px-6 lg:px-8">
         <% if notice.present? %>
@@ -38,6 +38,6 @@
     <main>
       <%= yield %>
     </main>
-    <%= render Marketing::FooterComponent.new %>
+    <%= render ::Layouts::FooterComponent.new %>
   </body>
 </html>

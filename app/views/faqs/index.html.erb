@@ -1,12 +1,12 @@
 <% content_for :title, "FAQ - CPT Consulting" %>
 
-<%= render Marketing::SectionComponent.new(eyebrow: "FAQ", title: "Practical answers before we start", subtitle: "Scope, process, ownership, and support in plain language.") do %>
+<%= render ::Sections::SectionComponent.new(eyebrow: "FAQ", title: "Respostas práticas antes de começarmos", subtitle: "Âmbito, processo, propriedade e suporte em linguagem simples.") do %>
   <div class="cpt-card mx-auto max-w-3xl px-6">
     <% @faqs.each do |category, faqs| %>
       <div class="py-6">
         <h2 class="cpt-eyebrow"><%= category %></h2>
         <% faqs.each do |faq| %>
-          <%= render Marketing::FaqItemComponent.new(faq: faq) %>
+          <%= render ::Sections::FaqItemComponent.new(faq: faq) %>
         <% end %>
       </div>
     <% end %>

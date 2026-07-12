@@ -1,19 +1,19 @@
-<% content_for :title, "Pricing - CPT Consulting" %>
+<% content_for :title, "Preços - CPT Consulting" %>
 
-<%= render Marketing::SectionComponent.new(eyebrow: "Pricing", title: "Transparent pricing, shaped by scope", subtitle: "Each product has a starting price and a clear inclusion list. Use the calculator for a fast estimate.") do %>
+<%= render ::Sections::SectionComponent.new(eyebrow: "Preços", title: "Preços transparentes, ajustados ao âmbito", subtitle: "Cada produto tem um preço base e uma lista clara de inclusões. Use a calculadora para uma estimativa rápida.") do %>
   <div class="grid gap-6 lg:grid-cols-4">
     <% @products.each_with_index do |product, index| %>
-      <%= render Marketing::PricingCardComponent.new(product: product, highlighted: index == 1) %>
+      <%= render ::Sections::PricingCardComponent.new(product: product, highlighted: index == 1) %>
     <% end %>
   </div>
   <div class="cpt-card-soft mt-12 text-center">
-    <h2 class="text-2xl font-semibold">Estimate your project</h2>
-    <p class="cpt-body mx-auto mt-3 max-w-2xl">Answer a few scope questions and receive a practical estimate before we prepare the final proposal.</p>
-    <%= render Ui::ButtonComponent.new(label: "Open quote calculator", href: new_quote_request_path, class: "mt-6") %>
+    <h2 class="text-2xl font-semibold">Estime o seu projecto</h2>
+    <p class="cpt-body mx-auto mt-3 max-w-2xl">Responda a algumas perguntas de âmbito e receba uma estimativa prática antes da proposta final.</p>
+    <%= render Ui::ButtonComponent.new(label: "Abrir calculadora", href: new_quote_request_path, class: "mt-6") %>
   </div>
   <div class="mt-12 grid gap-8">
     <% @products.each do |product| %>
-      <%= render Marketing::ProductMockupComponent.new(product: product) %>
+      <%= render ::Sections::ProductMockupComponent.new(product: product) %>
     <% end %>
   </div>
 <% end %>

@@ -8,7 +8,7 @@
       <div class="flex items-start justify-between gap-4">
         <div>
           <h2 class="font-semibold"><%= project.title %></h2>
-          <p class="mt-1 text-sm cpt-body"><%= project.industry %> · <%= project.published? ? "Published" : "Draft" %></p>
+          <p class="mt-1 text-sm cpt-body"><%= project.product_type %> · <%= project.industry %> · <%= project.published? ? "Published" : "Draft" %></p>
         </div>
         <%= link_to "Edit", edit_admin_portfolio_project_path(project), class: "cpt-link" %>
       </div>

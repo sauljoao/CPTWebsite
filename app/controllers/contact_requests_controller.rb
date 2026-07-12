@@ -7,7 +7,7 @@ class ContactRequestsController < ApplicationController
     @contact_request = ContactRequest.new(contact_request_params)
 
     if @contact_request.save
-      redirect_to contact_path, notice: "Thanks. We will reply within one business day."
+      redirect_to contact_path, notice: "Obrigado. Vamos responder no prazo de um dia útil."
     else
       render :new, status: :unprocessable_entity
     end

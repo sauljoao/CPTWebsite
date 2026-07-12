@@ -1,19 +1,19 @@
-<% content_for :title, "Portfolio - CPT Consulting" %>
+<% content_for :title, "Portefólio - CPT Consulting" %>
 
-<%= render Marketing::SectionComponent.new(eyebrow: "Portfolio", title: "Three examples for each product type", subtitle: "Interactive placeholders that show how each CPT product can serve different kinds of businesses.") do %>
+<%= render ::Sections::SectionComponent.new(eyebrow: "Portefólio", title: "Três exemplos para cada tipo de produto", subtitle: "Exemplos interactivos que mostram como cada produto CPT pode servir diferentes negócios.") do %>
   <div class="grid gap-12">
     <% @portfolio_projects.group_by(&:product_type).each do |product_type, projects| %>
       <section>
         <div class="mb-5 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
           <div>
             <p class="cpt-eyebrow"><%= product_type %></p>
-            <h2 class="cpt-heading mt-2 text-2xl"><%= pluralize(projects.size, "example") %></h2>
+            <h2 class="cpt-heading mt-2 text-2xl"><%= projects.size %> exemplos</h2>
           </div>
-          <%= link_to "Estimate a #{product_type.downcase}", new_quote_request_path, class: "cpt-link" %>
+          <%= link_to "Estimar #{product_type.downcase}", new_quote_request_path, class: "cpt-link" %>
         </div>
         <div class="grid gap-6 lg:grid-cols-3">
           <% projects.each do |project| %>
-            <%= render Marketing::PortfolioCardComponent.new(project: project) %>
+            <%= render ::Sections::PortfolioCardComponent.new(project: project) %>
           <% end %>
         </div>
       </section>

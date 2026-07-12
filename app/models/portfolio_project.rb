@@ -1,7 +1,7 @@
 class PortfolioProject < ApplicationRecord
   extend FriendlyId
 
-  PRODUCT_TYPES = [ "Landing Page", "Website", "Ecommerce Website", "Custom Solution" ].freeze
+  PRODUCT_TYPES = [ "Página de aterragem", "Website", "Loja online", "Solução à medida" ].freeze
 
   friendly_id :title, use: :slugged
 
@@ -13,10 +13,10 @@ class PortfolioProject < ApplicationRecord
 
   def product_kind
     {
-      "Landing Page" => :landing,
+      "Página de aterragem" => :landing,
       "Website" => :website,
-      "Ecommerce Website" => :ecommerce,
-      "Custom Solution" => :custom
+      "Loja online" => :ecommerce,
+      "Solução à medida" => :custom
     }.fetch(product_type)
   end
 end

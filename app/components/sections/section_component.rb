@@ -1,4 +1,4 @@
-module Marketing
+module Sections
   class SectionComponent < ApplicationComponent
     def initialize(eyebrow: nil, title:, subtitle: nil, classes: nil)
       @eyebrow = eyebrow
